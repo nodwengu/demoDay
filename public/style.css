@@ -1,0 +1,28 @@
+body{
+
+background-color: #2e294e;
+}
+
+.newMembers {
+    margin: 3em;
+    padding: 2em;
+    width: 3em;
+    margin-top: 20%;
+    margin-left: 10%;
+    margin-right: 20%;
+    margin-bottom: 20%;
+    
+}
+
+/* buttons---- */
+.search {
+border-radius: 1em;
+}
+
+
+.welcome {
+    position: fixed;
+    margin-left: 30%;
+    margin-right: 30%;
+    color: #ffd400;
+}
