@@ -5,6 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3018;
 app.use(express.static('public'));
 
+
 // import sqlite modules
 const sqlite3 = require('sqlite3');
 const { open } = require('sqlite');
@@ -22,6 +23,15 @@ open({
 	filename: './data.db',
 	driver: sqlite3.Database
 }) 
+
+
+////-----body parser--
+
+const bodyParser = require('body-parser');
+const session = require('express-session');
+
+
+
 
 //starting------
 
@@ -47,9 +57,14 @@ res.render('users', users);
 });
 
 //----handlebars templates
-app.get('/', function(req,res){
-    res.render("users");
+app.get('/addmemb', function(req,res){
+    res.render("addmemb");
     });
+//----handlebars2
+    app.get('/', function(req,res){
+        res.render("users");
+        res.redirect("/addmemb");
+        });
 
 
 
