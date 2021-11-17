@@ -17,11 +17,11 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 const users = [];
-
+// database setup starts here
 open({
 	filename: './data.db',
 	driver: sqlite3.Database
-})
+}) 
 
 //starting------
 
@@ -45,6 +45,11 @@ app.post('/membz', function (req, res) {
 app.get('/users', function(req,res){
 res.render('users', users);
 });
+
+//----handlebars templates
+app.get('/', function(req,res){
+    res.render("users");
+    });
 
 
 
