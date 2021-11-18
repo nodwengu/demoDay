@@ -6,6 +6,17 @@ const PORT = process.env.PORT || 3018;
 app.use(express.static('public'));
 
 
+//////satelize for loaction module set up
+const satelize = require("satelize");
+
+///satelize function----
+satelize.satelize({ip: '197.185.104.215', function(err,payload){
+    console.log(payload);
+}
+
+});
+
+
 // import sqlite modules
 const sqlite3 = require('sqlite3');
 const { open } = require('sqlite');
