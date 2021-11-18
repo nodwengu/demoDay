@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Document2</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="">
+    <div class="">
+<form action="">
         <center>
-            <div class="newMembers">
+            <div class="form">
 
-                <div>
+                <div class="con">
                     <table>
                         <tr>
                             <td>Name: <input type="text" name="user1"></td>
@@ -60,10 +62,17 @@
                     </table>
                 </div>
                 {{!-- my table --}}
-
+ 
 
                 <center><input type="submit"></center>
             </div>
     </form>
+    </div>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="image">
+    <input type="submit">
+    </form>
+    
 </body>
 </html>

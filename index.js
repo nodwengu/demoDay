@@ -20,10 +20,34 @@ app.set('view engine', 'handlebars');
 const users = [];
 // database setup starts here
 open({
-	filename: './data.db',
-	driver: sqlite3.Database
-}) 
+    filename: './data.db',
+    driver: sqlite3.Database
+})
 
+// image uploading middleware
+const path = require('path')
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'pics')
+    },
+    filename: (req, File, cb) => {
+        console.log(file)
+        cb(null, Date.now() + path.extname(file.originalname))
+    }
+})
+
+
+const upload = multer({ storage: storage })
+
+app.post('/upload', upload.single("image"), (req, res) => {
+
+    res.send(`upload`);
+});
+
+app.get('/upload', function (req, res) {
+    res.render('upload');
+});
 
 ////-----body parser--
 
@@ -52,19 +76,40 @@ app.post('/membz', function (req, res) {
 });
 
 //render query
-app.get('/users', function(req,res){
-res.render('users', users);
+app.get('/users', function (req, res) {
+    res.render('users', users);
 });
 
-//----handlebars templates
-app.get('/addmemb', function(req,res){
+//render query
+app.get('/', function (req, res) {
+    res.render('users', users);
+});
+
+
+//handlebar--login
+app.get('/login', function (req, res) {
+    res.render('login');
+});
+
+
+
+//----handlebars2---userspage
+app.get('/users', function (req, res) {
+    res.render("users");
+    // res.redirect("/addmemb");
+});
+
+//----handlebars templates---addmembers page
+app.get('/addmemb', function (req, res) {
     res.render("addmemb");
-    });
-//----handlebars2
-    app.get('/', function(req,res){
-        res.render("users");
-        res.redirect("/addmemb");
-        });
+});
+
+//----handlebars2---play page
+app.get('/play', function (req, res) {
+    res.render("play");
+    // res.redirect("/addmemb");
+});
+
 
 
 
