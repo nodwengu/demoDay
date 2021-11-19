@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,72 +8,74 @@
     <title>Document2</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="">
-<form action="">
-        <center>
-            <div class="form">
+        <form action="">
+            <center>
+                <div class="form">
 
-                <div class="con">
-                    <table>
-                        <tr>
-                            <td>Name: <input type="text" name="user1"></td>
-                        </tr>
-                    </table>
+                    <div class="">
+                        <table>
+                            <tr>
+                                <td>Name: <input type="text" name="user1"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div>
+                        <table>
+                            <tr>
+                                <td>last Name: <input type="text" name="user2"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div>
+                        <table>
+                            <tr>
+                                <td> Age: <input type="number" name="age"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div>
+                        <table>
+                            <tr>
+                                <td>Race: <input type="text" name="race"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div>
+                        <table>
+                            <tr>
+                                <td> main-address: <input type="text" name="address"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div>
+                        <table>
+                            <tr>
+                                <td><button>upload images</button></td>
+                                <td><button>Record voices</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                    {{!-- my table --}}
+
+
+                    <center><input type="submit"></center>
                 </div>
-
-                <div>
-                    <table>
-                        <tr>
-                            <td>last Name: <input type="text" name="user2"></td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div>
-                    <table>
-                        <tr>
-                            <td> Age: <input type="number" name="age"></td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div>
-                    <table>
-                        <tr>
-                            <td>Race: <input type="text" name="race"></td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div>
-                    <table>
-                        <tr>
-                            <td> main-address: <input type="text" name="address"></td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div>
-                    <table>
-                        <tr>
-                            <td><button>upload images</button></td>
-                            <td><button>Record voices</button></td>
-                        </tr>
-                    </table>
-                </div>
-                {{!-- my table --}}
- 
-
-                <center><input type="submit"></center>
-            </div>
-    </form>
+        </form>
     </div>
 
     <form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="image">
-    <input type="submit">
+        <input type="file" name="image">
+        <input type="submit">
     </form>
-    
+
 </body>
+
 </html>

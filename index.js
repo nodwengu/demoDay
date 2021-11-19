@@ -7,14 +7,14 @@ app.use(express.static('public'));
 
 
 //////satelize for loaction module set up
-const satelize = require("satelize");
+// const satelize = require('satelize');
 
 ///satelize function----
-satelize.satelize({ip: '197.185.104.215', function(err,payload){
-    console.log(payload);
-}
+// satelize.satelize({ip: '197.185.104.215', function(err,payload){
+//     console.log(payload);
+// }
 
-});
+// });
 
 
 // import sqlite modules
@@ -60,6 +60,10 @@ app.get('/upload', function (req, res) {
     res.render('upload');
 });
 
+app.get('/locate', function (req, res) {
+    res.render('locate');
+});
+
 ////-----body parser--
 
 const bodyParser = require('body-parser');
@@ -93,8 +97,14 @@ app.get('/users', function (req, res) {
 
 //render query
 app.get('/', function (req, res) {
-    res.render('users', users);
+    res.render('login');
 });
+
+
+//render query for location page
+// app.get('/locate', function (req, res) {
+//     res.render('locate');
+// });
 
 
 //handlebar--login

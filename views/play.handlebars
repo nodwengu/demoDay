@@ -1,35 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>play</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="page2.css">
+     <link rel="stylesheet" href="simple-grids.html">
+    <link rel="stylesheet" href="simple-grid.css">
+    <title> dashboard </title>
 </head>
 
 <body>
-    <div class="con">
-<div class="welcome"><h1>welcome to sure secure security app</h1></div>
-    <form action="/membz" method="post">
-        <center><label for="">location</label></center>
-        <br>
+<div class="left-bar">
+  <div class="upper-part">
+    <div class="actions">
+      <div class="circle"></div>
+      <div class="circle-2"></div>
+    </div>
+  </div>
 
-        
-<center>
-    <div class="form">
-        
-       <button class="search">Search location</button>
-        
-     
-    </div>
-     
-</center>
-<div><center><input type="submit" class="search"></center></di
-    </form>
-    </div>
+  <!-- left content starts -->
+  <div class="left-content">
+    <ul class="action-list">
+      <li class="item">
+        <img class="feather feather-inbox" src="svg/inbox.svg" alt="" />
+        <span>Inbox</span>
+      </li>
+      <li class="item">
+        <img class="feather feather-star" src="svg/star.svg" alt="" />
+        <span> Today</span>
+      </li>
+      <li class="item">
+        <img class="feather feather-calendar" src="svg/calender.svg" alt="" />
+        <span>Upcoming</span>
+      </li>
+      <li class="item">
+        <img class="feather feather-hash" src="svg/hash.svg" alt="" />
+        <span>Important</span>
+      </li>
+      <li class="item">
+        <img class="feather feather-users" src="svg/users.svg" alt="" />
+        <span>Meetings</span>
+      </li>
+      <li class="item">
+        <img class="feather feather-trash" src="svg/trash.svg" alt="" />
+        <span>Trash</span>
+      </li>
+    </ul>
+
     
+  <!-- left content ends -->
+</div>
+<!-- left bar ends -->
+
+<!-- right bar starts -->
+<div class="right-bar">
+  <div class="top-part">
+    <img class="feather feather-users" src="svg/users.svg" alt="" />
+    <div class="count">6</div>
+  </div>
+  <div class="header">add family</div>
+  <div class="right-content">
+    <div class="task-box yellow">
+      <div class="description-task">
+        <div class="time">]</div>
+        <div class="task-name">report a missin child</div>
+      </div>
+      <div class="more-button"></div>
+      <div class="members">
+       
+      </div>
+    </div>
+    <div class="task-box blue">
+      <div class="description-task">
+        <div class="time"></div>
+        <div class="task-name">video calling</div>
+      </div>
+      <div class="more-button"></div>
+      <div class="members">
+       
+      </div>
+    </div>
+    <div class="task-box red">
+      <div class="description-task">
+        <div class="time"></div>
+        <div class="task-name"> get location</div>
+      </div>
+      <div class="more-button"></div>
+      <div class="members">
+        
+      </div>
+    </div>
+    <div class="task-box green">
+      <div class="description-task">
+        <div class="time"></div>
+        <div class="task-name">location history</div>
+      </div>
+      <div class="more-button"></div>
+      <div class="members">
+        
+      </div>
+    </div>
+    <div class="task-box blue">
+      <div class="description-task">
+        <div class="time"></div>
+        <div class="task-name">view gallery</div>
+      </div>
+      <div class="more-button"></div>
+      <div class="members">
+       
+      </div>
+    </div>
+    <div class="task-box yellow">
+      <div class="description-task">
+        <div class="time"></div>
+        <div class="task-name">school time table</div>
+      </div>
+      <div class="more-button"></div>
+      <div class="members">
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- right bar ends -->
+
+
+    <div class="login-page">
+        <div class="form">
+
+        </div>
+    </div>
+
 </body>
 
 </html>
+
+{{!-- <head>
+  <script src='https://meet.jit.si/external_api.js'></script>
+</head>
+<body>
+ 
+<button id="start" type="button">Start</button>
+<div id="jitsi-container">
+</div>
+ 
+<script>
+var button = document.querySelector('#start');
+var container = document.querySelector('#jitsi-container');
+var api = null;
+ 
+button.addEventListener('click', () => {
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var stringLength = 30;
+ 
+    function pickRandom() {
+    return possible[Math.floor(Math.random() * possible.length)];
+    }
+ 
+var randomString = Array.apply(null, Array(stringLength)).map(pickRandom).join('');
+ 
+    var domain = "meet.jit.si";
+    var options = {
+        "roomName": randomString,
+        "parentNode": container,
+        "width": 600,
+        "height": 600,
+    };
+    api = new JitsiMeetExternalAPI(domain, options);
+});
+ 
+</script>
+</body>
+</html> --}}
