@@ -118,7 +118,7 @@ ul {
 }
 
 
-
+/* right bar css */
 
 
 
@@ -126,13 +126,7 @@ ul {
     display: flex;
     margin-top: 14px;
   }
-  .members img {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    margin-right: 4px;
-    object-fit: cover;
-  }
+  
   
   .right-bar {
     width: 320px;

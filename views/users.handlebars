@@ -1,40 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<style>
+body {font-family: Arial, Helvetica, sans-serif; background-color: #44bba4;}
+* {box-sizing: border-box; }
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color:#2e294e ;
+  padding: 20px;
+}
+
+.container2 {
+  border-radius: 5px;
+  background-color:#a8aa2a ;
+  padding: 20px;
+  margin-top: 1%;
+  margin-bottom: 5%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+</style>
 </head>
-
 <body>
-    <center>
-        <div class="home"> HOME</div>
-    </center>
-    <div class="con">
-        <div class="button">
-            <div id="button1">
-                <a href="suresecure1.html">
-                    SURE SECURE SECURITY
-                </a>
-            </div>
-            <div id="button2">
-                <a href="suresecure-grid.html">
-                    EMERGENCY REPORT
-                </a>
-            </div>
-            <div id="button3">
-                <a href="safesecure.html">
 
-                </a>
-            </div>
-        </div>
+<h3>Add missing person Form</h3>
+
+<div class="container">
+  <form action="/upload" class="form" method="post" enctype="multipart/form-data">
+    <input type="file" name="image">
+    <input type="submit">
+    
+    </form> 
+    <form  class="input" action="/missing">
+    <div>
+      <button>show more</button>
+    </div>
+    </form>
+    
     </div>
 
     
-</body>
+  <form action="/action_page.php" class="container2">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
 
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+    <label for="country">Province</label>
+    <select id="country" name="country">
+      <option value="australia">South Africa</option>
+      <option value="canada">Canada</option>
+      <option value="usa">Egypt</option>
+    </select>
+
+    <label for="subject">Description</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+   <div class="login">   
+
+</div>
+
+</body>
 </html>

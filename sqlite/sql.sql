@@ -1,5 +1,6 @@
--- CREATE TABLE USERS( username TEXT NOT NULL PRIMARY KEY, 
--- password NOT NULL, email NOT NULL, address NOT NULL);
+--  CREATE TABLE USERS( username TEXT NOT NULL PRIMARY KEY, 
+-- password NVARCHAR(50) NOT NULL, email NVARCHAR(50) NOT NULL, address NVARCHAR(50) NOT NULL);
 
-INSERT INTO users (username, password, email, address)
-VALUES ("mawande", "Mawande@2021", "mawande@gmail.com", "14, Alberton, 1400");
+
+INSERT INTO users(username, password, email, address)
+VALUES ("thingo5", "thingoz", "thingo@gmail.com", "13 mike avenue")

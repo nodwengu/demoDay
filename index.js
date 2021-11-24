@@ -1,9 +1,53 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
-
 const app = express();
 const PORT = process.env.PORT || 3018;
 app.use(express.static('public'));
+
+// socket .io setup
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
+
+
+
+
+
+io.on('connection', (socket) => {
+    console.log('a user connected');
+  });
+
+
+  io.on('connection', (socket) => {
+    console.log('a user connected');
+    socket.on('disconnect', () => {
+      console.log('user disconnected');
+    });
+  });
+
+  io.on('connection', (socket) => {
+    socket.on('chat message', (msg) => {
+      console.log('message: ' + msg);
+    });
+  });
+
+  io.emit('some event', { someProperty: 'some value', otherProperty: 'other value' }); // This will emit the event to all connected sockets
+  io.on('connection', (socket) => {
+    socket.broadcast.emit('hi');
+  });
+
+  io.on('connection', (socket) => {
+    socket.on('chat message', (msg) => {
+      io.emit('chat message', msg);
+    });
+  });
+
+  
+
+//   end setup for socket .io
+
+
 
 
 //////satelize for loaction module set up
@@ -64,13 +108,45 @@ app.get('/locate', function (req, res) {
     res.render('locate');
 });
 
+
+// missing people reports
+
+app.get('/missing', function (req, res) {
+  res.render('missing');
+});
+
+//contac us page
+app.get('/contus', function (req, res) {
+  res.render('contus');
+});
+
+
+
 ////-----body parser--
 
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
 
+// chat stuff java
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
 
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
+
+
+
+
+// app.get('/chat2', (req, res) => {
+//     res.send('<h1>Hello world</h1>');
+//   });
+
+  app.get('/chat2', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+  });
 
 //starting------
 
@@ -131,10 +207,55 @@ app.get('/play', function (req, res) {
     // res.redirect("/addmemb");
 });
 
-
-
-
 /////--------------------
 app.listen(PORT, function () {
     console.log(`App started on port ${PORT}`)
 });
+
+// location getting starts here
+
+
+const x = document.getElementById("demo");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+
+const x = document.getElementById("demo");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
+

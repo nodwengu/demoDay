@@ -2,79 +2,43 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document2</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="addmemb.css">
+  <title>Document</title>
+  
 </head>
 
 <body>
-    <div class="">
-        <form action="">
-            <center>
-                <div class="form">
 
-                    <div class="">
-                        <table>
-                            <tr>
-                                <td>Name: <input type="text" name="user1"></td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div>
-                        <table>
-                            <tr>
-                                <td>last Name: <input type="text" name="user2"></td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div>
-                        <table>
-                            <tr>
-                                <td> Age: <input type="number" name="age"></td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div>
-                        <table>
-                            <tr>
-                                <td>Race: <input type="text" name="race"></td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div>
-                        <table>
-                            <tr>
-                                <td> main-address: <input type="text" name="address"></td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div>
-                        <table>
-                            <tr>
-                                <td><button>upload images</button></td>
-                                <td><button>Record voices</button></td>
-                            </tr>
-                        </table>
-                    </div>
-                    {{!-- my table --}}
+<div class="topnav">
+  <a class="active" href="/play">Home</a>
+  <a href="/missing">News</a>
+  <a href="/contus">Contact Us</a>
+  <a href="#about">About</a>
+</div>
 
 
-                    <center><input type="submit"></center>
-                </div>
-        </form>
+  <form class="row g-3 form">
+    <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
     </div>
-
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="image">
-        <input type="submit">
-    </form>
+    <div class="flip-card-back">
+      <h1>John Doe</h1>
+      <p>Architect & Engineer</p>
+      <p>We love that guy</p>
+    </div>
+  
+  
+</div>
+  </form>
+</div>
+  <form action="/chat2">
+  <button onclick="/chat2">chat</button>
+  </form>
 
 </body>
 
