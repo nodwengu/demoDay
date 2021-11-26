@@ -4,48 +4,64 @@ const app = express();
 const PORT = process.env.PORT || 3018;
 app.use(express.static('public'));
 
-// socket .io setup
+/////////////////////////socket io start/////////////////////////
+
+
+
+
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
-
+app.get('/index.html', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
 
 
 
 io.on('connection', (socket) => {
-    console.log('a user connected');
+  console.log('a user connected');
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
   });
+});
 
 
-  io.on('connection', (socket) => {
-    console.log('a user connected');
-    socket.on('disconnect', () => {
-      console.log('user disconnected');
-    });
+io.on('connection', (socket) => {
+  socket.on('chat message', (msg) => {
+    console.log('message: ' + msg);
   });
+});
 
-  io.on('connection', (socket) => {
-    socket.on('chat message', (msg) => {
-      console.log('message: ' + msg);
-    });
-  });
+////emiting
+io.emit('some event', { someProperty: 'some value', otherProperty: 'other value' }); // This will emit the event to all connected sockets
 
-  io.emit('some event', { someProperty: 'some value', otherProperty: 'other value' }); // This will emit the event to all connected sockets
-  io.on('connection', (socket) => {
-    socket.broadcast.emit('hi');
-  });
+//send to all mesaging//////////////////////
 
-  io.on('connection', (socket) => {
-    socket.on('chat message', (msg) => {
-      io.emit('chat message', msg);
-    });
+io.on('connection', (socket) => {
+  socket.broadcast.emit('hi');
+});
+
+///////////////////////////////////////////////////////
+io.on('connection', (socket) => {
+  socket.on('chat message', (msg) => {
+    io.emit('chat message', msg);
   });
+});
+
+///////////////////////////////////////////////////////
+server.listen(3000, () => {
+  console.log('listening on *:3000');
+});
+
+
+
+
 
   
 
-//   end setup for socket .io
+///////   //////////end setup for socket .io///////////////////////
 
 
 
@@ -139,32 +155,9 @@ function closeForm() {
 
 
 
-
-// app.get('/chat2', (req, res) => {
-//     res.send('<h1>Hello world</h1>');
-//   });
-
-  app.get('/chat2', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
-  });
-
 //starting------
 
-app.get('/info', function (req, res) {
-    res.send(`please add, ${req.body.user1} ${req.body.user2}`);
-});
-//userName and details
-app.post('/info', function (req, res) {
-    console.log(req.body);
-    res.send(`Hello, ${req.body.FirstName} ${req.body.lastName}`);
-});
-//family members capturing
-app.post('/membz', function (req, res) {
-    console.log(req.body);
-    res.send(`Hello, ${req.body.FirstName} ${req.body.lastName}
-    ${req.body.age} ${req.body.race} ${req.body.main - address}
-    `);
-});
+
 
 //render query
 app.get('/users', function (req, res) {
@@ -259,3 +252,4 @@ app.listen(PORT, function () {
 //   "<br>Longitude: " + position.coords.longitude;
 // }
 
+// chat functionality begins here

@@ -149,7 +149,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* login page CSS */
 header .header{
-    background-color: rgb(48, 70, 194);
+    background-color: #2e294e;
     height: 45px;
   }
   header a img{
