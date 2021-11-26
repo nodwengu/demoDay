@@ -76,6 +76,13 @@ server.listen(3000, () => {
 
 // });
 
+// mongodb datbase connection
+const mongoose = require('mongoose');
+
+// Connect to DB : put the mongodb uri here
+mongoose.connect( '', ()=>{
+  console.log('Connected to db')
+});
 
 // import sqlite modules
 const sqlite3 = require('sqlite3');
@@ -111,12 +118,19 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
+// import routes
+const authRoute = require('./routes/auth');
+
+//Route Middlewares
+app.use('/api/user', authRoute);
+
 app.post('/upload', upload.single("image"), (req, res) => {
 
     res.send(`upload`);
 });
 
 app.get('/upload', function (req, res) {
+    
     res.render('upload');
 });
 
