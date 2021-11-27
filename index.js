@@ -41,28 +41,6 @@ const session = require('express-session');
 //starting------
 
 
-
-//render query
-
-
-
-//render query for location page
-// app.get('/locate', function (req, res) {
-//     res.render('locate');
-// });
-
-
-
-
-//----handlebars2---userspage
-
-
-/////--------------------
-
-
-
-
-
 // database start//////////////////////////////////////////
 
 
