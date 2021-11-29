@@ -16,19 +16,62 @@
   <a href="#about">About</a>
 </div>
 
-<div class="form">
-  <div class="form">
-    <p>n publishing and graphic design, Lorem ipsum is
-      a placeholder text commonly used to
-      demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be
-      used as a placeholder before final copy is available. It is also used to temporarily replace text in a process
-      called greeking, which allows designers to consider the form of a webpage or publication, ...</p>
-    <button onclick="getLocation()">track/locate</button>
-    </ul>
-  </div>
+{{!-- <form action="action_page.php"> --}}
+  <div class="container">
+    <h1>Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+<div class="row justify-content-md-center" style="margin-top: 30px">
+    <div class="col-md-4">
+
+        {{!-- {{#if message}}
+            <div class="alert {{messageClass}}" role="alert">
+                {{message}}
+            </div>
+        {{/if}} --}} to
+
+        <form method="POST" action="/register">
+            <div class="form-group">
+                <label for="firstNameInput">First Name</label>
+                <input name="userName" type="text" class="form-control" id="firstNameInput">
+            </div>
+
+            <div class="form-group">
+                <label for="lastNameInput">Last Name</label>
+                <input name="mobile" type="text" class="form-control" id="lastNameInput">
+            </div>
+
+            <div class="form-group">
+                <label for="lastNameInput">Last Name</label>
+                <input name="homeAddress" type="text" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="emailInput">Email address</label>
+                <input name="email" type="email" class="form-control" id="emailInput" placeholder="Enter email">
+            </div>
+
+            <div class="form-group">
+                <label for="passwordInput">Password</label>
+                <input name="pwd" type="password" class="form-control" id="passwordInput" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPasswordInput">Confirm Password</label>
+                <input name="confirmPassword" type="password" class="form-control" id="confirmPasswordInput"
+                    placeholder="Re-enter your password here">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+</div>
 
 
   <script src="/index.js"></script>
   </body>
 
 </html>
+
+

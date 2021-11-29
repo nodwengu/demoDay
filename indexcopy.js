@@ -314,69 +314,35 @@ const session = require('express-session');
 //starting------
 
 
-// database start//////////////////////////////////////////
+// multer set up
 
 
-// open({
-//     filename: './DB/securitydb.db',
-//     driver: sqlite3.Database
-//   }).then(async function (db) {
-      
-
-//     // run migrations
-//     // await db.migrate();
-
-// app.get('/upload', function (req, res) {
-//     res.render('upload');
-// });
-
-// app.get('/locate', function (req, res) {
-//     res.render('locate');
-// });
 
 
-// // missing people reports
 
-// app.get('/missing', function (req, res) {
-//   res.render('missing');
-// });
+const express = require('express')
+const multer  = require('multer')
+const upload = multer({ dest: 'uploads/' })
 
-// //contac us page
-// app.get('/contus', function (req, res) {
-//   res.render('contus');
-// });
+const app = express()
 
+app.post('/profile', upload.single('avatar'), function (req, res, next) {
+  // req.file is the `avatar` file
+  // req.body will hold the text fields, if there were any
+})
 
-// app.get('/users', function (req, res) {
-//   res.render("users");
-//   // res.redirect("/addmemb");
-// });
+app.post('/photos/upload', upload.array('photos', 12), function (req, res, next) {
+  // req.files is array of `photos` files
+  // req.body will contain the text fields, if there were any
+})
 
-// //----handlebars templates---addmembers page
-// app.get('/addmemb', function (req, res) {
-//   res.render("addmemb");
-// });
-
-// //----handlebars2---play page
-// app.get('/play', function (req, res) {
-//   res.render("play");
-//   // res.redirect("/addmemb");
-// });
-
-
-// //render query
-// app.get('/', function (req, res) {
-//   res.render('login');
-// });
-
-// // server.listen(3000, () => {
-// //   console.log('listening on *:3000');
-// // });
-
-// const PORT = process.env.PORT || 3018;
-
-// app.listen(PORT, function () {
-//   console.log(`App started on port ${PORT}`)
-// });
-
-// })
+const cpUpload = upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'gallery', maxCount: 8 }])
+app.post('/cool-profile', cpUpload, function (req, res, next) {
+  // req.files is an object (String -> Array) where fieldname is the key, and the value is array of files
+  //
+  // e.g.
+  //  req.files['avatar'][0] -> File
+  //  req.files['gallery'] -> Array
+  //
+  // req.body will contain the text fields, if there were any
+})

@@ -16,17 +16,16 @@
 </div>
 
  <div class="form">   
-<form action="/upload" class="form" method="post" enctype="multipart/form-data">
-    <input type="file" name="image">
-    <input type="submit">
-    </form> 
-    <form action="/action_page.php" target="_blank">
+<form action="/profile" method="post" enctype="multipart/form-data">
+  <input type="file" name="avatar" />
+</form>
+    <form action="/add-missing"  method="POST">
             <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
             <p><input class="w3-input w3-padding-16" type="text" placeholder="Address" required name="Email"></p>
-            <p><input class="w3-input w3-padding-16" type="text" placeholder="Ethnicity" required name="Name"></p>
+            <p><input class="w3-input w3-padding-16" type="text" placeholder="Ethnicity" required name="Race"></p>
             <p><input class="w3-input w3-padding-16" type="text" placeholder="Gender" required name="Gender"></p>
-            <p><input class="w3-input w3-padding-16" type="text" placeholder="Last Seen" required name="Subject"></p>
-            <p><input class="w3-input w3-padding-16" type="number" placeholder="Age" required name="Message"></p>
+            <p><input class="w3-input w3-padding-16" type="text" placeholder="Last Seen" required name="Date"></p>
+            <p><input class="w3-input w3-padding-16" type="number" placeholder="Age" required name="Age"></p>
             <p><input class="w3-input w3-padding-16" type="text" placeholder="Description" required name="Message"></p>
             <p>
                 <button class="w3-button w3-light-grey w3-padding-large" type="submit">
@@ -35,6 +34,13 @@
             </p>
         </form>
     </div>
+
+
+
+
+
+
+    
 
    
 </body>
