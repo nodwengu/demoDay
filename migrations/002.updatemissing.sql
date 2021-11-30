@@ -1,5 +1,5 @@
 
-drop table missing;
+
 
 create table missing (
 	id INTEGER PRIMARY KEY,

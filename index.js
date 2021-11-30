@@ -64,7 +64,7 @@ const session = require('express-session');
 
 // database start//////////////////////////////////////////
 
-
+ 
 open({
   filename: './securitydb.db',
   driver: sqlite3.Database
@@ -73,7 +73,7 @@ open({
 
   // run migrations
   await db.migrate();
-
+ 
   app.post('/add-missing', async function (req, res) {
     console.log("hello");
     console.log(req.body);
@@ -91,7 +91,7 @@ open({
 
   app.get('/missing',async function (req, res) {
     
-    const result = await db.all('SELECT user_name, lastseen, description FROM missing limit 3')
+    const result = await db.all('SELECT user_name, lastseen, description FROM missing')
     // const result2 = await db.all('SELECT user_name, description FROM missing')
     
     console.log("result", result)
@@ -100,6 +100,7 @@ open({
     });
 
   });
+  
 
 // register////////////////////////////
 

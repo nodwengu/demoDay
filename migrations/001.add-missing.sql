@@ -1,5 +1,4 @@
-drop table missing;
-
+d
 create table missing (
 	id INTEGER PRIMARY KEY,
 	user_name text not null,
